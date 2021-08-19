@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+from setenv import Line_access_token, cannel_secret
 import os
 
 from linebot import (
@@ -14,8 +15,8 @@ from linebot.models import (
 app = Flask(__name__)
 
 #環境変数取得
-YOUR_CHANNEL_ACCESS_TOKEN = os.environ["eSC9qxG+A3YaZ4r6iyVEUUBvy7LjHkO4m8aYKzxA3K/MbRy2qryj29LzkHZA70+EokUzep80xf+WvegAKpj3Ymi6+i7w2mejMEhwytUvMBEutIhO90tly5TT5b8qyzSECbltfCP31/iLipI+5p8EowdB04t89/1O/w1cDnyilFU="]
-YOUR_CHANNEL_SECRET = os.environ["9c09260d18c8929566e1ad704e674713"]
+YOUR_CHANNEL_ACCESS_TOKEN = os.environ[Line_access_token]
+YOUR_CHANNEL_SECRET = os.environ[cannel_secret]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
